@@ -1,0 +1,52 @@
+{
+  "name": "vite-react",
+  "author": "JS-banana",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite --mode development",
+    "build:beta": "vite build --mode beta",
+    "build:release": "vite build --mode release",
+    "serve": "vite preview",
+    "predeploy": "yarn build:release",
+    "deploy": "gh-pages -d dist",
+    "lint:fix": "eslint ./src --ext .jsx,.js,.ts,.tsx --quiet --fix --ignore-path ./.gitignore",
+    "lint:format": "prettier  --loglevel warn --write \"./**/*.{js,jsx,ts,tsx,css,md,json}\" ",
+    "lint": "yarn lint:format && yarn lint:fix "
+  },
+  "dependencies": {
+    "@ant-design/pro-layout": "^6.19.3",
+    "antd": "^4.14.1",
+    "gh-pages": "^3.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.2.0",
+    "zustand": "^3.5.1"
+  },
+  "devDependencies": {
+    "@types/babel__core": "^7.1.14",
+    "@types/node": "^14.14.36",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "@types/react-router-dom": "^5.1.7",
+    "@typescript-eslint/eslint-plugin": "^4.17.0",
+    "@typescript-eslint/parser": "^4.17.0",
+    "@vitejs/plugin-react-refresh": "^1.3.1",
+    "eslint": "^7.22.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "less": "^4.1.1",
+    "less-vars-to-js": "^1.3.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.2.1",
+    "typescript": "^4.2.3",
+    "vite": "^2.1.3",
+    "vite-aliases": "^0.5.1",
+    "vite-plugin-babel-import": "^2.0.2",
+    "vite-plugin-imp": "^2.0.5"
+  },
+  "pre-commit": "lint"
+}
