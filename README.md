@@ -6,11 +6,11 @@
 - alias import
 - build tools from [vite2](https://github.com/vitejs/vite)
 - antd Design Config embedded
-- eslint
-- prettierrc
-- pre-commit
-- zustand
-- less
+- eslint 代码格式规范验证
+- prettierrc 格式化配置
+- pre-commit 代码提交前执行Eslint验证
+- zustand 状态管理器
+- 支持Less module（任何以 .module.css 为后缀名的 CSS 文件都被认为是一个 CSS modules 文件）
 
 ## 🚀 项目地址
 
