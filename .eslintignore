@@ -1,0 +1,4 @@
+**/dist/**
+**/node_modules/**
+**/server.js
+**/vite.config.js
