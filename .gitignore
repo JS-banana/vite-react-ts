@@ -1,9 +1,23 @@
+# node_modules
 node_modules
+
+# .DS_Store
 .DS_Store
+
+# public
 dist
 dist-ssr
+
+# config
 *.local
 .vscode
+
+# yarn
 yarn.lock
 yarn-error.log
+
+# package-lock.json
 package-lock.json
+
+# .pnpm-debug.log
+.pnpm-debug.log
