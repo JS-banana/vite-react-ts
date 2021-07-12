@@ -1,7 +1,30 @@
 {
-  "name": "vite-react",
-  "author": "JS-banana",
+  "name": "vite2.0-react-template",
+  "author": {
+    "name": "JS-banana",
+    "email": "sss213018@163.com",
+    "url": "https://ssscode.com",
+    "github": "https://github.com/JS-banana"
+  },
   "version": "1.0.0",
+  "description": "a support vite2.0+react+typescript+antd+eslint+prettier template",
+  "keywords": [
+    "vite",
+    "vite2.0",
+    "react",
+    "antd",
+    "ant design",
+    "zustand",
+    "eslint",
+    "prettier",
+    "demo",
+    "template"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:JS-banana/vite2-react-ts-antd-eslint-Prettier.git"
+  },
   "scripts": {
     "dev": "vite --mode development",
     "build:beta": "vite build --mode beta",
