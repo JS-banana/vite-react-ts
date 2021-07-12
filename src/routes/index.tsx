@@ -32,7 +32,7 @@ const routes: IRoute[] = [
     path: '/user',
     component: React.lazy(() => import('../layouts/UserLayout')),
     meta: {
-      title: '系统路由',
+      title: '用户路由',
     },
     redirect: '/user/login',
     children: [],
@@ -41,7 +41,7 @@ const routes: IRoute[] = [
     path: '/',
     component: React.lazy(() => import('../layouts/BasicLayout')),
     meta: {
-      title: '系统',
+      title: '系统路由',
     },
     redirect: '/home',
     children: [
