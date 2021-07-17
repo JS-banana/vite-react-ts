@@ -15,5 +15,15 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react"
-  }
+  },
+  "include": [
+    "src/**/*",
+    "typings/**/*",
+    "config/**/*",
+    ".eslintrc.js",
+    ".stylelintrc.js",
+    ".prettierrc.js",
+    "jest.config.js"
+  ],
+  "exclude": ["node_modules", "build", "dist"]
 }

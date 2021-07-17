@@ -21,3 +21,6 @@ package-lock.json
 
 # .pnpm-debug.log
 .pnpm-debug.log
+
+# .eslintcache
+.eslintcache
