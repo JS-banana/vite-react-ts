@@ -1,11 +1,32 @@
 {
-  "name": "vite-react",
-  "author": "JS-banana",
+  "name": "vite-react-ts-antd-eslint-prettier",
   "version": "1.0.0",
+  "description": "a Vite2 + Typescript + React + Antd + Less + Eslint + Prettier template",
+  "homepage": "https://github.com/JS-banana/vite-react-ts-antd-eslint-prettier",
+  "repository": {
+    "url": "https://github.com/JS-banana/vite-react-ts-antd-eslint-prettier"
+  },
+  "author": {
+    "name": "JS-banana",
+    "email": "sss213018@163.com",
+    "url": "https://github.com/JS-banana"
+  },
+  "keywords": [
+    "vite",
+    "typescript",
+    "react",
+    "antd",
+    "less",
+    "eslint",
+    "prettier",
+    "template",
+    "demo"
+  ],
   "scripts": {
     "dev": "vite --mode development",
     "build:beta": "vite build --mode beta",
     "build:release": "vite build --mode release",
+    "build:legacy ": "vite build --mode legacy ",
     "serve": "vite preview",
     "deploy": "gh-pages -d dist",
     "lint": "npm run lint:js && npm run lint:style && npm run lint:prettier",
@@ -14,13 +35,13 @@
     "lint:prettier": "prettier --check \"src/**/*\" --end-of-line auto",
     "lint:style": "stylelint --fix \"src/**/*.less\" --syntax less",
     "precommit": "lint-staged",
+    "precommit-msg": "echo 'Pre-commit checks...' && exit 0",
     "prettier": "prettier -c --write \"src/**/*\""
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
+  "pre-commit": [
+    "precommit-msg",
+    "precommit"
+  ],
   "lint-staged": {
     "**/*.less": "stylelint --syntax less",
     "**/*.{js,jsx,ts,tsx}": "npm run lint:js",
@@ -52,6 +73,7 @@
     "@typescript-eslint/eslint-plugin": "^4.17.0",
     "@typescript-eslint/parser": "^4.17.0",
     "@umijs/fabric": "^2.6.2",
+    "@vitejs/plugin-legacy": "^1.4.4",
     "@vitejs/plugin-react-refresh": "^1.3.1",
     "eslint": "^7.22.0",
     "eslint-config-prettier": "^8.1.0",
@@ -70,7 +92,7 @@
     "vite": "^2.1.3",
     "vite-aliases": "^0.5.1",
     "vite-plugin-babel-import": "^2.0.2",
-    "vite-plugin-imp": "^2.0.5"
-  },
-  "pre-commit": "lint"
+    "vite-plugin-imp": "^2.0.5",
+    "vite-plugin-style-import": "^1.0.1"
+  }
 }
