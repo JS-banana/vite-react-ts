@@ -4,17 +4,20 @@
   "description": "a Vite2 + Typescript + React + Antd + Less + Eslint + Prettier template",
   "homepage": "https://github.com/JS-banana/vite-react-ts-antd-eslint-prettier",
   "repository": {
-    "url": "https://github.com/JS-banana/vite-react-ts-antd-eslint-prettier"
+    "type": "git",
+    "url": "git@github.com:JS-banana/vite2-react-ts-antd-eslint-prettier.git"
   },
   "author": {
     "name": "JS-banana",
     "email": "sss213018@163.com",
-    "url": "https://github.com/JS-banana"
+    "url": "https://ssscode.com",
+    "github": "https://github.com/JS-banana"
   },
   "keywords": [
     "vite",
     "typescript",
     "react",
+    "zustand",
     "antd",
     "less",
     "eslint",
@@ -22,6 +25,7 @@
     "template",
     "demo"
   ],
+  "license": "MIT",
   "scripts": {
     "dev": "vite --mode development",
     "build:beta": "vite build --mode beta",
