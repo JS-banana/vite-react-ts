@@ -2,7 +2,7 @@ import { Spin } from 'antd';
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import { IRoute } from './routes';
+import type { IRoute } from './routes';
 import { layoutRouteList } from './routes/utils';
 
 const App = () => {

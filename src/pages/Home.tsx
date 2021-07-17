@@ -11,10 +11,9 @@ import {
   Tag,
 } from 'antd';
 import React, { useEffect, useState } from 'react';
+import useStore from '../store';
 
 const { Option } = Select;
-
-import useStore from '../store';
 
 const Home: React.FC = () => {
   const [form] = Form.useForm();
@@ -88,15 +87,16 @@ const Home: React.FC = () => {
     },
   ];
 
+  const handleCancle = () => {
+    setVisible(false);
+  };
+
   const hanldeOk = () => {
     handleCancle();
     form.validateFields().then((res) => {
       console.log(res);
       editItem ? editList(res) : addList(res);
     });
-  };
-  const handleCancle = () => {
-    setVisible(false);
   };
   console.log('list', list);
   return (

@@ -1,4 +1,5 @@
-import routes, { IRoute } from './index';
+import type { IRoute } from './index';
+import routes from './index';
 
 /**
  *

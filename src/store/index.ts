@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import create from 'zustand';
 
 // import { persist } from 'zustand/middleware';
@@ -75,7 +76,7 @@ const useStore = create<State>((set, get) => ({
     get().getList();
   },
   addList: async (params: any) => {
-    dataSource = [{ ...params, key: dataSource.length + 1 + '' }, ...dataSource];
+    dataSource = [{ ...params, key: `${dataSource.length + 1  }` }, ...dataSource];
     get().getList();
   },
 }));
