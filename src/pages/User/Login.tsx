@@ -1,10 +1,18 @@
 import { Button, Card, Form, Input } from 'antd';
 import React from 'react';
+
 import useStore from '../../store';
 
 const Login: React.FC = () => {
   const user = useStore((state) => state.user);
   const setUser = useStore((state) => state.setUser);
+
+  b;
+  function a() {
+    ('123');
+    // console.log(a);
+  }
+  a();
 
   return (
     <div>
