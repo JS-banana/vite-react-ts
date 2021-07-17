@@ -5,6 +5,8 @@ import ReactDOM from 'react-dom';
 
 import App from './App';
 
+import 'antd/lib/style/index.css';
+
 ReactDOM.render(
   <StrictMode>
     <App />

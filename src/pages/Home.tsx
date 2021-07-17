@@ -48,7 +48,7 @@ const Home: React.FC = () => {
       key: 'tags',
       dataIndex: 'tags',
       // eslint-disable-next-line react/display-name
-      render: (tags) => (
+      render: (tags: any[]) => (
         <>
           {tags?.map((tag) => {
             let color = tag.length > 5 ? 'geekblue' : 'green';
@@ -68,7 +68,7 @@ const Home: React.FC = () => {
       title: 'Action',
       key: 'action',
       // eslint-disable-next-line react/display-name
-      render: (_, record) => (
+      render: (_: any, record: { key: string }) => (
         <Space size="middle">
           <Button
             type="primary"
