@@ -20,6 +20,7 @@
     "src/**/*",
     "typings/**/*",
     "config/**/*",
+    "vite.config.ts",
     ".eslintrc.js",
     ".stylelintrc.js",
     ".prettierrc.js",
