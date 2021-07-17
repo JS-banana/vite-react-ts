@@ -1,9 +1,13 @@
 module.exports = {
   extends: [require.resolve('@umijs/fabric/dist/eslint')],
+  plugins: ['simple-import-sort'],
   rules: {
     // note you must disable the base rule as it can report incorrect errors
     'no-unused-expressions': 'warn',
     '@typescript-eslint/no-unused-expressions': ['warn'],
+    // sort import
+    'simple-import-sort/imports': 'warn',
+    'simple-import-sort/exports': 'warn',
   },
 };
 
