@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Page404 from '../pages/404';
-import Home from '../pages/Home';
-import Login from '../pages/User/Login';
-import Register from '../pages/User/Register';
+const Page404 = React.lazy(() => import('../pages/404'));
+const Home = React.lazy(() => import('../pages/Home'));
+const Login = React.lazy(() => import('../pages/User/Login'));
+const Register = React.lazy(() => import('../pages/User/Register'));
 
 export interface IRouteBase {
   // 路由路径
