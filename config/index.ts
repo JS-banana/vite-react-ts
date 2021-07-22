@@ -8,11 +8,14 @@ interface DefaultConfigProps {
 }
 
 const defaultConfig: DefaultConfigProps = {
+  dev: {
+    baseUrl: '/',
+  },
   beta: {
-    baseUrl: '/dev',
+    baseUrl: '/dev/',
   },
   release: {
-    baseUrl: '/prod',
+    baseUrl: '/prod/',
   },
 };
 export default defaultConfig;
