@@ -8,6 +8,8 @@ git clone https://github.com/JS-banana/vite-react-ts-antd-eslint-prettier.git
 
 # install
 npm install
+# pnpm
+pnpm install
 # or
 yarn install
 
@@ -49,6 +51,7 @@ yarn dev
     ├── main.ts                         // 项目入口文件
     ├── typing.d.ts                     // ts类型文件
 ├── .editorconfig                       // IDE格式规范
+├── .env                                // 环境变量
 ├── .eslintignore                       // eslint忽略
 ├── .eslintrc                           // eslint配置文件
 ├── .gitignore                          // git忽略
@@ -61,6 +64,7 @@ yarn dev
 ├── LICENSE.md                          // LICENSE
 ├── package.json                        // package
 ├── pnpm-lock.yaml                      // pnpm-lock
+├── postcss.config.js                   // postcss
 ├── README.md                           // README
 ├── tsconfig.json                       // typescript配置文件
 └── vite.config.ts                      // vite
@@ -72,4 +76,5 @@ yarn dev
 
 ## 使用 vite 搭建 react 项目
 
-[vite 系列之——构建标准化 react 应用](https://ssscode.com/pages/428be4)
+- 博客：[vite 系列之——构建标准化 react 应用](https://ssscode.com/pages/428be4)
+- 掘金：[Vite2.0+Typescript+React+Antd+Less+Eslint+Prettier+Precommit 构建标准化 react 应用](https://juejin.cn/post/6986169708722520072)
