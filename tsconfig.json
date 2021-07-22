@@ -24,11 +24,11 @@
     "src/**/*",
     "typings/**/*",
     "config/**/*",
-    "vite.config.ts",
+    "vite.config.ts"
     // ".eslintrc.js",
     // ".stylelintrc.js",
     // ".prettierrc.js",
-    "**/*.config.js"
+    // "**/*.config.js"
   ],
   "exclude": ["node_modules", "build", "dist", "**/*.js"]
 }
