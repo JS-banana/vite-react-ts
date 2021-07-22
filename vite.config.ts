@@ -60,7 +60,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       // ANALYZE
       ANALYZE &&
         visualizer({
-          // filename: './node_modules/.cache/visualizer/stats.html',
+          filename: './node_modules/.cache/visualizer/stats.html',
           open: true,
           gzipSize: true,
           brotliSize: true,
