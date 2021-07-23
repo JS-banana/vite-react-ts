@@ -2,14 +2,9 @@
 
 ## 开发
 
-- **在线预览源码**
+- **使用 Github1s 在线预览源码**
 
-<span style="display: inline-block;background: #f9f9f9;padding: 8px 16px;box-sizing:border-box;border-radius: 20px">
-  <a href="https://github1s.com/JS-banana/vite-react-ts-antd-eslint-prettier/">
-    <img style="height: 24px; vertical-align: middle"src="https://raw.githubusercontent.com/conwnet/github1s/master/resources/images/logo.svg"/>
-    <span style="font-size: 16px; font-weight: bold; vertical-align: middle">Preview in Github1s</span>
-  </a>
-</span>
+[![Preview in Github1s](https://raw.githubusercontent.com/conwnet/github1s/master/resources/images/logo.svg)](https://github1s.com/JS-banana/vite-react-ts-antd-eslint-prettier/)
 
 - **使用 Gitpod 体验在线开发环境**
 
