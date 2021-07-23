@@ -1,6 +1,21 @@
 # Vite + React + Typescript + Antd + Eslint + Prettier
 
-## 使用
+## 开发
+
+- **在线预览源码**
+
+<span style="display: inline-block;background: #f9f9f9;padding: 8px 16px;box-sizing:border-box;border-radius: 20px">
+  <a href="https://github1s.com/JS-banana/vite-react-ts-antd-eslint-prettier/">
+    <img style="height: 24px; vertical-align: middle"src="https://raw.githubusercontent.com/conwnet/github1s/master/resources/images/logo.svg"/>
+    <span style="font-size: 16px; font-weight: bold; vertical-align: middle">Preview in Github1s</span>
+  </a>
+</span>
+
+- **使用 Gitpod 体验在线开发环境**
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/JS-banana/vite-react-ts-antd-eslint-prettier/)
+
+- **克隆到本地**
 
 ```sh
 # clone
