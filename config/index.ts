@@ -8,11 +8,11 @@ interface DefaultConfigProps {
 }
 
 const defaultConfig: DefaultConfigProps = {
-  dev: {
-    baseUrl: '/',
+  development: {
+    baseUrl: '/dev/',
   },
   beta: {
-    baseUrl: '/dev/',
+    baseUrl: '/beta/',
   },
   release: {
     baseUrl: '/prod/',

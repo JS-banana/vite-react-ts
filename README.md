@@ -2,25 +2,17 @@
 
 ## 开发
 
-- **使用 Github1s 在线预览源码**
-
-[![Preview in Github1s](https://raw.githubusercontent.com/conwnet/github1s/master/resources/images/logo.svg)](https://github1s.com/JS-banana/vite-react-ts-antd-eslint-prettier/)
-
 - **使用 Gitpod 体验在线开发环境**
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/JS-banana/vite-react-ts-antd-eslint-prettier/)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/JS-banana/vite-react-ts/)
 
 - **克隆到本地**
 
 ```sh
 # clone
-git clone https://github.com/JS-banana/vite-react-ts-antd-eslint-prettier.git
+git clone https://github.com/JS-banana/vite-react-ts.git
 
 # install
-npm install
-# pnpm
-pnpm install
-# or
 yarn install
 
 # dev serve
@@ -80,11 +72,8 @@ yarn dev
 └── vite.config.ts                      // vite
 ```
 
-## 项目地址
+## 版本
 
-[vite2-react-ts-antd-eslint-prettier](https://github.com/JS-banana/vite2-react-ts-antd-eslint-prettier)
-
-## 使用 vite 搭建 react 项目
-
-- 博客：[vite 系列之——构建标准化 react 应用](https://ssscode.com/pages/428be4)
-- 掘金：[Vite2.0+Typescript+React+Antd+Less+Eslint+Prettier+Precommit 构建标准化 react 应用](https://juejin.cn/post/6986169708722520072)
+- v0.0.1：2021-07-23日更新
+- v0.0.2：2021-08-12日更新
+  - `.stylelint`配置调整，`pre-commit`调整为`.husky`及其他细节优化
