@@ -1,6 +1,8 @@
-import React from 'react';
-import clas from './index.module.less';
 import './index.less';
+
+import React from 'react';
+
+import clas from './index.module.less';
 
 const Register: React.FC = () => {
   // 天然支持 ES6

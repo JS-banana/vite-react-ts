@@ -76,7 +76,7 @@ const useStore = create<State>((set, get) => ({
     get().getList();
   },
   addList: async (params: any) => {
-    dataSource = [{ ...params, key: `${dataSource.length + 1  }` }, ...dataSource];
+    dataSource = [{ ...params, key: `${dataSource.length + 1}` }, ...dataSource];
     get().getList();
   },
 }));
