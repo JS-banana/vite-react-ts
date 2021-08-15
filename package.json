@@ -38,7 +38,8 @@
     "lint:fix": "eslint --cache --ext .js,.jsx,.ts,.tsx --no-error-on-unmatched-pattern --quiet --fix ./src",
     "lint:style": "stylelint --fix \"src/**/*.less\" --syntax less",
     "clean:cache": "rimraf node_modules/.cache/ && rimraf node_modules/.vite",
-    "stylelint-check": "stylelint-config-prettier-check"
+    "stylelint-check": "stylelint-config-prettier-check",
+    "prettier":"prettier --write"
   },
   "husky": {
     "hooks": {

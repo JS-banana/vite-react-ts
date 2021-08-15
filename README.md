@@ -1,4 +1,6 @@
-# Vite + React + Typescript + Antd + Eslint + Prettier
+# Vite + React + Typescript + Antd
+
+一个使用`vite2.x`搭建的`react17.x`项目，支持`TypeScript4.x`、`Antd4.x`，以及`eslint`/`prettier`/`stylelint`/`commitlint`等工程化管理~
 
 ## 开发
 
@@ -74,6 +76,11 @@ yarn dev
 
 ## 版本
 
-- v0.0.1：2021-07-23日更新
-- v0.0.2：2021-08-12日更新
+- v0.0.1：2021-07-23更新
+- v0.0.2：2021-08-12更新
   - `.stylelint`配置调整，`pre-commit`调整为`.husky`及其他细节优化
+- 2021-08-15更新中
+  - 解决antd按需加载在开发环境下的自定义样式被覆盖问题
+  - 重构路由及layout模块，优化路由页面
+  - 增加mock请求数据，整理目录结构
+  - 环境变量及全部配置优化统一
