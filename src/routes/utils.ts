@@ -1,5 +1,5 @@
+import routes from '.';
 import type { IRoute } from './index';
-import routes from './index';
 
 /**
  *

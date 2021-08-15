@@ -27,7 +27,46 @@ export interface IRoute extends IRouteBase {
   children?: IRoute[];
 }
 
-const routes: IRoute[] = [
+export const pages: IRoute[] = [
+  {
+    path: '/home',
+    meta: {
+      title: '首页',
+      icon: 'home',
+    },
+    component: <Home />,
+  },
+  {
+    path: '/login',
+    component: <Login />,
+    meta: {
+      title: '登录',
+    },
+  },
+  {
+    path: '/register',
+    component: <Register />,
+    meta: {
+      title: '注册',
+    },
+  },
+  {
+    path: '/error',
+    meta: {
+      title: '页面不存在',
+    },
+    component: <Page404 />,
+  },
+  {
+    path: '/*',
+    meta: {
+      title: '错误页面',
+    },
+    redirect: '/error/404',
+  },
+];
+
+const layouts: IRoute[] = [
   {
     path: '/user',
     component: React.lazy(() => import('../layouts/UserLayout')),
@@ -44,45 +83,8 @@ const routes: IRoute[] = [
       title: '系统路由',
     },
     redirect: '/home',
-    children: [
-      {
-        path: '/home',
-        meta: {
-          title: '首页',
-          icon: 'home',
-        },
-        component: <Home />,
-      },
-      {
-        path: '/login',
-        component: <Login />,
-        meta: {
-          title: '登录',
-        },
-      },
-      {
-        path: '/register',
-        component: <Register />,
-        meta: {
-          title: '注册',
-        },
-      },
-      {
-        path: '/error',
-        meta: {
-          title: '页面不存在',
-        },
-        component: <Page404 />,
-      },
-      {
-        path: '/*',
-        meta: {
-          title: '错误页面',
-        },
-        redirect: '/error/404',
-      },
-    ],
+    children: pages,
   },
 ];
 
-export default routes;
+export default layouts;
