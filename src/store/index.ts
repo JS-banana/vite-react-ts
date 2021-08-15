@@ -2,12 +2,16 @@
 
 // zustand 采用观察者模式，对组件进行订阅更新，
 // 因此不需要在最外层提供一个类似redux的Provider包裹层
+import { createBrowserHistory } from 'history';
 import create from 'zustand';
+
+const history = createBrowserHistory();
 
 // 数据持久化，会缓存到 storage
 // import { persist } from 'zustand/middleware';
 // 模拟请求延迟
-import { sleep } from './request';
+import { sleep } from './sleep';
+import { StateProps } from './type';
 
 // 模拟列表假数据
 let dataSource = [
@@ -34,46 +38,25 @@ let dataSource = [
   },
 ];
 
-// 类型声明
-type StateProps = {
-  /**@name 用户信息 */
-  user: string;
-  /**@name count */
-  count: number;
-  /**@name 数据列表 */
-  list: any[];
-  /**@name loading */
-  loading: boolean;
-  /**@name 当前修改项 */
-  editItem: any;
-
-  setUser: (val: string) => void;
-  setLoading: (val: boolean) => void;
-  getList: () => void;
-  removeList: (id: string) => void;
-  editList: (params: any) => void;
-  addList: (params: any) => void;
-  setEditItem: (params: any) => void;
-  addAFish: () => void;
-  reduceAFish: () => void;
-};
-
 // 创建 store
 const useStore = create<StateProps>((set, get) => ({
-  user: 'xiaoming',
-  count: 0,
+  user: null,
   list: [],
   loading: false,
   editItem: undefined,
-  setUser: (val) => set({ user: val }),
+  login: async (val) => {
+    const res = await sleep(1000);
+  },
+  setUser: async (val) => {
+    await sleep(1000);
+    history.push('/');
+    // set({ user:  });
+  },
   setLoading: (val) => set({ loading: val }),
-  addAFish: () => set({ count: get().count + 1 }), // 同 set({ count: state.count + 1 })
-  reduceAFish: () => set({ count: get().count - 1 }),
   setEditItem: (params: any) => set({ editItem: params }),
   // 获取列表
   getList: async () => {
     await sleep(1000);
-    console.log(dataSource);
     set({ list: dataSource });
   },
   // 删除
