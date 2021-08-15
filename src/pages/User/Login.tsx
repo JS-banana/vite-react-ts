@@ -1,34 +1,38 @@
-import { Button, Card, Form, Input } from 'antd';
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { Button, Card, Form, Input, message } from 'antd';
 import React from 'react';
 
 import useStore from '../../store';
+import cls from './index.module.less';
 
 const Login: React.FC = () => {
-  const user = useStore((state) => state.user);
-  const setUser = useStore((state) => state.setUser);
-
-  function a() {
-    ('123');
-    // console.log(a);
-  }
-  a();
+  const { setUser, loading } = useStore((state) => ({ ...state }));
 
   return (
-    <div>
-      <h2> Login </h2>
-      <div>change this user name</div>
+    <div className={cls.loginBox}>
       <Card>
         <Form
-          initialValues={{ name: user }}
-          onFinish={(val) => {
-            setUser(val.name);
+          onFinish={({ username, password }) => {
+            if (username === 'admin' && password === '123456') {
+              return setUser(username);
+            }
+            message.error('账号或密码错误，请重试！');
           }}>
-          <Form.Item label="名称" name="name">
-            <Input />
+          <Form.Item
+            name="username"
+            rules={[{ required: true, message: '请输入用户名' }]}>
+            <Input prefix={<UserOutlined />} placeholder="请输入用户名：admin" />
+          </Form.Item>
+          <Form.Item name="password" rules={[{ required: true, message: '请输入密码' }]}>
+            <Input prefix={<LockOutlined />} placeholder="请输入密码：123456" />
           </Form.Item>
           <Form.Item>
-            <Button type="primary" htmlType="submit">
-              提交
+            <Button
+              loading={loading}
+              type="primary"
+              htmlType="submit"
+              className={cls.button}>
+              登陆
             </Button>
           </Form.Item>
         </Form>

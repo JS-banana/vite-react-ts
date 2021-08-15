@@ -1,19 +1,19 @@
+import './global.less';
+
 import { Spin } from 'antd';
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import type { IRoute } from './routes';
-import { layoutRouteList } from './routes/utils';
+import BasicLayout from './layouts/BasicLayout';
+import UserLayout from './layouts/UserLayout';
 
 const App = () => {
-  // console.log(layoutRouteList);
   return (
     <Suspense fallback={<Spin size="large" className="layout__loading" />}>
-      <Router>
+      <Router basename="/">
         <Switch>
-          {layoutRouteList.map((route: IRoute) => (
-            <Route key={route.path} path={route.path} component={route.component}></Route>
-          ))}
+          <Route path="/user" component={UserLayout}></Route>
+          <Route path="/" component={BasicLayout}></Route>
         </Switch>
       </Router>
     </Suspense>
