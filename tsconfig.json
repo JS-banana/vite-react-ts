@@ -17,18 +17,10 @@
     "jsx": "react",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/"]
+      "@/*": ["src/*"],
+      "@c/*": ["config/*"]
     }
   },
-  "include": [
-    "src/**/*",
-    "typings/**/*",
-    "config/**/*",
-    "vite.config.ts"
-    // ".eslintrc.js",
-    // ".stylelintrc.js",
-    // ".prettierrc.js",
-    // "**/*.config.js"
-  ],
+  "include": ["src/", "typings/**/*", "config/**/*", "vite.config.ts"],
   "exclude": ["node_modules", "build", "dist", "**/*.js"]
 }

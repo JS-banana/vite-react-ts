@@ -6,17 +6,16 @@ import path from 'path';
 // 包依赖分析 https://github.com/btd/rollup-plugin-visualizer
 import { visualizer } from 'rollup-plugin-visualizer';
 import type { ConfigEnv, UserConfig } from 'vite';
-// 读取.env环境变量，并输出对象类型
-import { loadEnv } from 'vite';
 // gzip压缩 https://github.com/anncwb/vite-plugin-compression
 import viteCompression from 'vite-plugin-compression';
+
 // vite-plugin-imp 该插件按需加载存在部分样式丢失的情况
 // import vitePluginImp from 'vite-plugin-imp';
 // 由于 vite 本身已按需导入了组件库，因此仅样式不是按需导入的，因此只需按需导入样式即可。
-import styleImport from 'vite-plugin-style-import';
-
+// 该插件存在样式覆盖问题，自己定义的样式会被覆盖
+// import styleImport from 'vite-plugin-style-import';
 // import config from './config';
-import { ANALYZE, COMPRESS_GZIP } from './config/constant';
+import { ANALYZE, COMPRESS_GZIP, HTTP_API, PORT } from './config/constant';
 
 const themeVariables = lessToJS(
   fs.readFileSync(path.resolve(__dirname, './config/variables.less'), 'utf8'),
@@ -25,14 +24,8 @@ const themeVariables = lessToJS(
 // 函数式配置
 export default ({ command, mode }: ConfigEnv): UserConfig => {
   const isBuild = command === 'build';
-  const root = process.cwd();
-  const env = loadEnv(mode, root);
-  // 拿到的值是 string 类型
-  const { VITE_PORT, VITE_HTTP_API } = env;
 
-  console.log('env', env);
-  console.log('command', command);
-  console.log('mode', mode);
+  console.log({ command, mode });
 
   return {
     // base: config[mode].baseUrl,
@@ -40,18 +33,28 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     plugins: [
       // reactRefresh
       reactRefresh(),
+      // vitePluginImp({
+      //   libList: [
+      //     {
+      //       libName: 'antd',
+      //       style(name) {
+      //         return `antd/es/${name}/style/index`;
+      //       },
+      //     },
+      //   ],
+      // }),
       // styleImport
-      styleImport({
-        libs: [
-          {
-            libraryName: 'antd',
-            esModule: true,
-            resolveStyle: (name) => {
-              return `antd/es/${name}/style/index`;
-            },
-          },
-        ],
-      }),
+      // styleImport({
+      //   libs: [
+      //     {
+      //       libraryName: 'antd',
+      //       esModule: true,
+      //       resolveStyle: (name) => {
+      //         return `antd/es/${name}/style/index`;
+      //       },
+      //     },
+      //   ],
+      // }),
       // legacy
       mode === 'legacy' &&
         legacy({
@@ -86,6 +89,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       alias: [
         { find: /^~/, replacement: path.resolve(__dirname, './') },
         { find: '@', replacement: path.resolve(__dirname, 'src') },
+        { find: '@c', replacement: path.resolve(__dirname, 'config') },
       ],
       // alias: {
       //   '~': path.resolve(__dirname, './'),
@@ -93,11 +97,11 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       // },
     },
     server: {
-      port: Number(VITE_PORT), // 开发环境启动的端口
+      port: PORT, // 开发环境启动的端口
       proxy: {
         '/api': {
           // 当遇到 /api 路径时，将其转换成 target 的值
-          target: VITE_HTTP_API,
+          target: HTTP_API,
           changeOrigin: true,
           rewrite: (pre) => pre.replace(/^\/api/, ''), // 将 /api 重写为空
         },
