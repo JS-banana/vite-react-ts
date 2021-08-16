@@ -6,7 +6,7 @@ import useStore from '../../store';
 import cls from './index.module.less';
 
 const Login: React.FC = () => {
-  const { setUser, loading } = useStore((state) => ({ ...state }));
+  const { login, loading } = useStore((state) => ({ ...state }));
 
   return (
     <div className={cls.loginBox}>
@@ -14,7 +14,7 @@ const Login: React.FC = () => {
         <Form
           onFinish={({ username, password }) => {
             if (username === 'admin' && password === '123456') {
-              return setUser(username);
+              return login(username);
             }
             message.error('账号或密码错误，请重试！');
           }}>

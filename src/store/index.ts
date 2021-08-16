@@ -5,6 +5,8 @@
 import { createBrowserHistory } from 'history';
 import create from 'zustand';
 
+import { login } from '@/services/user';
+
 const history = createBrowserHistory();
 
 // 数据持久化，会缓存到 storage
@@ -45,7 +47,9 @@ const useStore = create<StateProps>((set, get) => ({
   loading: false,
   editItem: undefined,
   login: async (val) => {
-    const res = await sleep(1000);
+    // const res = await sleep(1000);
+    const res = await login(val);
+    console.log('res', res);
   },
   setUser: async (val) => {
     await sleep(1000);
