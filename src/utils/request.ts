@@ -1,11 +1,12 @@
-import { BASE_URL } from '@c/constant';
+// import { BASE_URL } from '@c/constant';
 import axios from 'axios';
 
 // 环境
-const env = process.env.NDOE_ENV || 'development';
+// const env = process.env.NDOE_ENV || 'development';
 
 // 默认基础请求地址
-axios.defaults.baseURL = (BASE_URL as { [key: string]: string })[env];
+// axios.defaults.baseURL = (BASE_URL as { [key: string]: string })[env];
+axios.defaults.baseURL = '/api';
 // 请求是否带上cookie
 axios.defaults.withCredentials = false;
 
