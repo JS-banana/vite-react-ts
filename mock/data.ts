@@ -1,3 +1,5 @@
+import { MockMethod } from 'vite-plugin-mock';
+
 // 用户数据
 const users = [
   {
@@ -109,8 +111,53 @@ const list = [
   },
 ];
 
-export default {
-  users,
-  menus,
-  list,
-};
+export { list, menus, users };
+
+export default [
+  {
+    url: '/api/login',
+    timeout: 1000,
+    method: 'post',
+    response: async (req, res) => {
+      let body = '';
+      await new Promise((resolve) => {
+        req.on('data', (chunk) => {
+          body += chunk;
+        });
+        req.on('end', () => resolve(undefined));
+      });
+      res.setHeader('Content-Type', 'text/plain');
+      res.statusCode = 200;
+      res.end(`hello, ${body}`);
+      console.log(body);
+    },
+  },
+
+  {
+    url: '/api/menu',
+    timeout: 1000,
+    method: 'get',
+    response: () => {
+      return {
+        code: 0,
+        data: menus,
+      };
+    },
+  },
+  {
+    url: '/api/text',
+    method: 'post',
+    rawResponse: async (req, res) => {
+      let reqbody = '';
+      await new Promise((resolve) => {
+        req.on('data', (chunk) => {
+          reqbody += chunk;
+        });
+        req.on('end', () => resolve(undefined));
+      });
+      res.setHeader('Content-Type', 'text/plain');
+      res.statusCode = 200;
+      res.end(`hello, ${reqbody}`);
+    },
+  },
+] as MockMethod[];
