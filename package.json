@@ -42,12 +42,6 @@
     "stylelint-check": "stylelint-config-prettier-check",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npx lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
   "lint-staged": {
     "**/*.{js,jsx,tsx,ts,json}": [
       "npm run lint:fix",
