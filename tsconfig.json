@@ -21,6 +21,12 @@
       "@c/*": ["config/*"]
     }
   },
-  "include": ["src/", "typings/**/*", "config/**/*", "vite.config.ts"],
+  "include": [
+    "src/",
+    "typings/**/*",
+    "config/**/*",
+    "vite.config.ts",
+    "mock/_createProductionServer.ts"
+  ],
   "exclude": ["node_modules", "build", "dist", "**/*.js"]
 }

@@ -5,7 +5,7 @@
 import { createBrowserHistory } from 'history';
 import create from 'zustand';
 
-import { login } from '@/services/user';
+import { login } from '@/api/user';
 
 const history = createBrowserHistory();
 
@@ -49,7 +49,11 @@ const useStore = create<StateProps>((set, get) => ({
   login: async (val) => {
     // const res = await sleep(1000);
     const res = await login(val);
-    console.log('res', res);
+    if (res.code === 0) {
+      set({ user: res.data });
+      console.log('res', res);
+      history.push('/home');
+    }
   },
   setUser: async (val) => {
     await sleep(1000);

@@ -1,3 +1,6 @@
+/**
+ * https://github.com/anncwb/vite-plugin-mock/tree/main#readme
+ */
 import { MockMethod } from 'vite-plugin-mock';
 
 // 用户数据
@@ -118,18 +121,20 @@ export default [
     url: '/api/login',
     timeout: 1000,
     method: 'post',
-    response: async (req, res) => {
-      let body = '';
-      await new Promise((resolve) => {
-        req.on('data', (chunk) => {
-          body += chunk;
-        });
-        req.on('end', () => resolve(undefined));
-      });
-      res.setHeader('Content-Type', 'text/plain');
-      res.statusCode = 200;
-      res.end(`hello, ${body}`);
-      console.log(body);
+    response: ({ body }: any) => {
+      const { username, password } = body;
+      if (username === 'admin' && password === '123456') {
+        return {
+          code: 0,
+          data: { ...users[0], token: 'this_is_a_token' },
+        };
+      } else {
+        return {
+          code: -1,
+          message: '用户或密码错误',
+          data: null,
+        };
+      }
     },
   },
 
@@ -141,6 +146,21 @@ export default [
       return {
         code: 0,
         data: menus,
+      };
+    },
+  },
+  {
+    url: '/api/user',
+    timeout: 1000,
+    method: 'get',
+    response: () => {
+      return {
+        code: 0,
+        data: {
+          name: 'xiaoxiao',
+          age: 18,
+          mobile: '15011111111',
+        },
       };
     },
   },

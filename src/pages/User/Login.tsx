@@ -14,7 +14,7 @@ const Login: React.FC = () => {
         <Form
           onFinish={({ username, password }) => {
             if (username === 'admin' && password === '123456') {
-              return login(username);
+              return login({ username, password });
             }
             message.error('账号或密码错误，请重试！');
           }}>

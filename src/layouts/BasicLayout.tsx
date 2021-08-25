@@ -1,4 +1,5 @@
 import { Layout, Spin } from 'antd';
+import { createBrowserHistory } from 'history';
 import React from 'react';
 import { Route, RouteComponentProps, Switch, withRouter } from 'react-router-dom';
 
@@ -11,7 +12,12 @@ const { Content } = Layout;
 const Home = React.lazy(() => import('../pages/Home'));
 
 const BasicLayout: React.FC<RouteComponentProps> = () => {
-  const loading = useStore((state) => state.loading);
+  const history = createBrowserHistory();
+  const { loading, user } = useStore((state) => ({ ...state }));
+
+  React.useEffect(() => {
+    history.push(user ? '/home' : '/user');
+  }, [user]);
 
   return (
     <Layout>
