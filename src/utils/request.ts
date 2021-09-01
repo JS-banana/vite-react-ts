@@ -4,7 +4,7 @@ import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 // 环境
 // const env = process.env.NDOE_ENV || 'development';
 
-const BASE_URL = 'api';
+const BASE_URL = '/api';
 
 const instance = axios.create({
   baseURL: BASE_URL,

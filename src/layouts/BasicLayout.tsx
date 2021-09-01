@@ -1,39 +1,27 @@
-import { Layout, Spin } from 'antd';
-import { createBrowserHistory } from 'history';
+import { Layout } from 'antd';
 import React from 'react';
-import { Route, RouteComponentProps, Switch, withRouter } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
+
+import { IRouteConfig } from '@/routes/config';
 
 import MyHeader from '../components/Header';
 import MyMenu from '../components/Menu';
-import useStore from '../store';
 
 const { Content } = Layout;
 
-const Home = React.lazy(() => import('../pages/Home'));
-
-const BasicLayout: React.FC<RouteComponentProps> = () => {
-  const history = createBrowserHistory();
-  const { loading, user } = useStore((state) => ({ ...state }));
-
-  React.useEffect(() => {
-    history.push(user ? '/home' : '/user');
-  }, [user]);
-
+const BasicLayout: React.FC<{ route: IRouteConfig }> = ({ route }) => {
+  console.log('route', route);
   return (
     <Layout>
       <MyMenu />
       <Layout>
         <MyHeader />
         <Content style={{ height: 'calc(100vh - 60px)' }}>
-          <Spin spinning={loading}>
-            <Switch>
-              <Route key="home" path="/home" component={Home} />
-            </Switch>
-          </Spin>
+          {renderRoutes(route.routes)}
         </Content>
       </Layout>
     </Layout>
   );
 };
 
-export default withRouter(BasicLayout);
+export default BasicLayout;

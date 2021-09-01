@@ -1,15 +1,19 @@
+import { createBrowserHistory } from 'history';
 import React from 'react';
-import { Redirect } from 'react-router-dom';
 
-import useStore from '../store';
+// import useStore from '../store';
 
 const Authority: React.FC = ({ children }) => {
-  const user = useStore((state) => state.user);
-  console.log('Authority', user);
+  const history = createBrowserHistory();
+  // const user = useStore((state) => state.user);
+  // console.log('Authority', user);
 
-  if (!user) {
-    return <Redirect to="/user/login" />;
+  if (!localStorage.getItem('vite-react-ts-antd-token')) {
+    history.push('/user/login');
   }
+  // if (!user?.token) {
+  //   history.push('/user/login');
+  // }
 
   return <>{children}</>;
 };

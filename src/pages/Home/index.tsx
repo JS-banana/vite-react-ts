@@ -104,10 +104,10 @@ const Home: React.FC = () => {
     <div>
       <h2>Home</h2>
       <Space>
-        <Button type="primary" onClick={() => setVisible(true)}>
+        {/* <Button type="primary" onClick={() => setVisible(true)}>
           新增
         </Button>
-        <Button onClick={() => getList()}>refresh</Button>
+        <Button onClick={() => getList()}>refresh</Button> */}
       </Space>
       <Card>
         <Table dataSource={list} columns={columns} />

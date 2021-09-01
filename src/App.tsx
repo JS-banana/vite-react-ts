@@ -2,16 +2,18 @@ import './global.less';
 
 import { Spin } from 'antd';
 import React, { Suspense } from 'react';
+import { renderRoutes } from 'react-router-config';
+import { BrowserRouter } from 'react-router-dom';
 
-// import { BrowserRouter as Router, Switch } from 'react-router-dom';
-import Authority from './layouts/Authority';
-// import BasicLayout from './layouts/BasicLayout';
-// import UserLayout from './layouts/UserLayout';
+import Authority from '@/layouts/Authority';
+import routes from '@/routes/config';
 
 const App = () => {
   return (
     <Suspense fallback={<Spin size="large" className="layout__loading" />}>
-      <Authority></Authority>
+      <Authority>
+        <BrowserRouter>{renderRoutes(routes)}</BrowserRouter>
+      </Authority>
     </Suspense>
   );
 };

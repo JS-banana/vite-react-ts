@@ -10,7 +10,7 @@ const Login: React.FC = () => {
 
   return (
     <div className={cls.loginBox}>
-      <Card>
+      <Card className="_bg" bordered={false}>
         <Form
           onFinish={({ username, password }) => {
             if (username === 'admin' && password === '123456') {

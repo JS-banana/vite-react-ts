@@ -2,12 +2,9 @@
 
 // zustand 采用观察者模式，对组件进行订阅更新，
 // 因此不需要在最外层提供一个类似redux的Provider包裹层
-import { createBrowserHistory } from 'history';
 import create from 'zustand';
 
 import { login } from '@/api/user';
-
-const history = createBrowserHistory();
 
 // 数据持久化，会缓存到 storage
 // import { persist } from 'zustand/middleware';
@@ -51,13 +48,14 @@ const useStore = create<StateProps>((set, get) => ({
     const res = await login(val);
     if (res.code === 0) {
       set({ user: res.data });
+      localStorage.setItem('vite-react-ts-antd-token', res.data.token);
       console.log('res', res);
-      history.push('/home');
+      window.location.href = '/sys/home';
     }
   },
   setUser: async (val) => {
     await sleep(1000);
-    history.push('/');
+    window.location.href = '/';
     // set({ user:  });
   },
   setLoading: (val) => set({ loading: val }),

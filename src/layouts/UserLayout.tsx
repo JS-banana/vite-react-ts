@@ -1,23 +1,16 @@
 import { Layout, Typography } from 'antd';
 import React from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
 
-const Login = React.lazy(() => import('../pages/User/Login'));
-const Page404 = React.lazy(() => import('../pages/404'));
+import type { IRouteConfig } from '@/routes/config';
 
 const { Content, Footer } = Layout;
 const { Text } = Typography;
 
-const UserLayout: React.FC = () => {
+const UserLayout: React.FC<{ route: IRouteConfig }> = ({ route }) => {
   return (
-    <Layout className="_layout">
-      <Content>
-        <Switch>
-          <Redirect exact from="/user" to="/user/login" />
-          <Route exact path="/user/login" component={Login} />
-          <Route component={Page404} />
-        </Switch>
-      </Content>
+    <Layout className="_bg">
+      <Content>{renderRoutes(route.routes)}</Content>
       <Footer>
         <Text>
           Vite2.0 + React + Antd <Text type="secondary">@JS-banana 2021</Text>

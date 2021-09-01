@@ -1,6 +1,4 @@
 /* eslint-disable no-unused-vars */
-import { AxiosPromise } from 'axios';
-
 import request from '@/utils/request';
 
 enum Api {
@@ -8,12 +6,12 @@ enum Api {
   USER_INFP = '/api/user',
 }
 
-// interface ResProps {
-//   code: 0 | -1;
-//   data: any;
-// }
+interface ResProps {
+  code: 0 | -1;
+  data: any;
+}
 
-export const login = (data: { username: string; password: string }) =>
+export const login = (data: { username: string; password: string }): Promise<ResProps> =>
   request({ url: Api.USER_Login, method: 'POST', data });
 
 export const getUserInfo = () => request({ url: Api.USER_INFP, method: 'GET' });

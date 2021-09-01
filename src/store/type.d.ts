@@ -16,9 +16,11 @@ interface MenuProps {
 type RolesProps = 1 | 2 | 3;
 
 interface UserProps {
-  info: InfoProps;
-  menus: MenuProps[];
+  username: string;
+  password: string;
+  phone: string;
   roles: RolesProps[];
+  token: string;
 }
 
 // 类型声明
