@@ -10,7 +10,7 @@ const { Text } = Typography;
 
 const UserLayout: React.FC = () => {
   return (
-    <Layout>
+    <Layout className="_layout">
       <Content>
         <Switch>
           <Redirect exact from="/user" to="/user/login" />
