@@ -1,0 +1,1 @@
+System.register(["./vendor-legacy.35e6cf9f.js"],(function(e){"use strict";var t,n;return{setters:[function(e){t=e.R,n=e.C}],execute:function(){e("default",(function(){return t.createElement(n,null,"About Page")}))}}}));

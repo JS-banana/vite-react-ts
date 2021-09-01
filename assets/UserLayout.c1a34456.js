@@ -1,0 +1,1 @@
+import{R as e,L as t,a,T as n}from"./vendor.049b4360.js";const{Content:l,Footer:r}=t,{Text:o}=n,s=({route:n})=>e.createElement(t,{className:"_bg"},e.createElement(l,null,a(n.routes)),e.createElement(r,null,e.createElement(o,null,"Vite2.0 + React + Antd ",e.createElement(o,{type:"secondary"},"@JS-banana 2021"))));export{s as default};
