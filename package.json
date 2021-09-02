@@ -32,6 +32,7 @@
     "build:beta": "vite build --mode beta",
     "build:release": "vite build --mode release",
     "build:legacy": "vite build --mode legacy ",
+    "build:deploy": "vite build --base=/vite-react-ts/",
     "preview": "vite preview",
     "prebuild": "rimraf dist",
     "deploy": "gh-pages -d dist",
