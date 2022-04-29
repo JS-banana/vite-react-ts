@@ -112,7 +112,10 @@ const Home: React.FC = () => {
       <Card>
         <Table dataSource={list} columns={columns} />
       </Card>
+      {/* transitionName=""和maskTransitionName=""是去除弹框动画属性 */}
       <Modal
+        // transitionName=""
+        // maskTransitionName=""
         title={editItem ? '修改信息' : '新增信息'}
         visible={visible}
         onOk={hanldeOk}
