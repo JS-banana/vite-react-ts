@@ -1,4 +1,5 @@
 import { Layout } from 'antd';
+import { createBrowserHistory } from 'history';
 import React from 'react';
 import { renderRoutes } from 'react-router-config';
 
@@ -10,7 +11,12 @@ import MyMenu from '../components/Menu';
 const { Content } = Layout;
 
 const BasicLayout: React.FC<{ route: IRouteConfig }> = ({ route }) => {
-  console.log('route', route);
+  const history = createBrowserHistory();
+
+  if (!localStorage.getItem('vite-react-ts-antd-token')) {
+    history.push('/user/login');
+  }
+
   return (
     <Layout>
       <MyMenu />

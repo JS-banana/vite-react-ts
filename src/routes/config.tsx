@@ -1,5 +1,8 @@
 import React from 'react';
 
+import BasicLayout from '@/layouts/BasicLayout';
+import UserLayout from '@/layouts/UserLayout';
+import Redirect from '@/pages/Redirect';
 export interface IRouteConfig {
   // 路由路径
   path: string;
@@ -18,28 +21,15 @@ export interface IRouteConfig {
 
 const layouts: IRouteConfig[] = [
   {
-    path: '/user',
-    component: React.lazy(() => import('@/layouts/UserLayout')),
-    title: '用户路由',
-    redirect: '/user/login',
-    routes: [
-      {
-        path: '/user/login',
-        component: React.lazy(() => import('@/pages/User/Login')),
-        title: '登录',
-      },
-      {
-        path: '/user/register',
-        component: 'pages/User/Register',
-        title: '注册',
-      },
-    ],
+    path: '/',
+    title: '/',
+    exact: true,
+    component: Redirect,
   },
   {
     path: '/sys',
-    component: React.lazy(() => import('@/layouts/BasicLayout')),
+    component: BasicLayout,
     title: '系统路由',
-    redirect: '/sys/home',
     // exact: true,
     routes: [
       {
@@ -57,14 +47,27 @@ const layouts: IRouteConfig[] = [
     ],
   },
   {
+    path: '/user',
+    component: UserLayout,
+    title: '用户路由',
+    redirect: '/user/login',
+    routes: [
+      {
+        path: '/user/login',
+        component: React.lazy(() => import('@/pages/User/Login')),
+        title: '登录',
+      },
+      {
+        path: '/user/register',
+        component: 'pages/User/Register',
+        title: '注册',
+      },
+    ],
+  },
+  {
     path: '/noFond',
     title: '页面不存在',
     component: React.lazy(() => import('@/pages/NoFond')),
-  },
-  {
-    path: '/*',
-    title: '错误页面',
-    redirect: '/error',
   },
 ];
 

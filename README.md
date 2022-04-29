@@ -74,6 +74,10 @@ yarn dev
 └── vite.config.ts                      // vite
 ```
 
+## 计划
+
+- [ ] 路由重构：当前5.x路由版本结合`react-router-config`使用的写法有待改善，后续考虑直接上6.x版本，以及路由模块的重构
+
 ## 版本
 
 - v0.0.1：2021-07-23更新
@@ -86,3 +90,6 @@ yarn dev
   - 分离vite plugin及其配置、环境变量，优化写法并全局统一管理
   - 使用 react-route-config 统一管理路由
   - 调整部分样式
+- 2022-04-29更新：
+  - 依赖`@vitejs/plugin-react-refresh`变更为`@vitejs/plugin-react`，前者已被弃用（<https://www.npmjs.com/package/@vitejs/plugin-react-refresh>）
+  - 路由调整，路由写法需要调整（目前版本5.x，考虑升级6.x）

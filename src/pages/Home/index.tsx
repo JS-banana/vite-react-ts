@@ -18,7 +18,8 @@ const { Option } = Select;
 
 const Home: React.FC = () => {
   const [form] = Form.useForm();
-  const list = useStore((state) => state.list); // list 该写法可检测到 state 变化
+  const list = useStore((state) => state.list);
+  const loading = useStore((state) => state.loading);
   const editItem = useStore((state) => state.editItem);
   const { getList, removeList, editList, addList, setEditItem } = useStore.getState();
 
@@ -109,7 +110,7 @@ const Home: React.FC = () => {
         </Button>
         <Button onClick={() => getList()}>refresh</Button> */}
       </Space>
-      <Card>
+      <Card loading={loading}>
         <Table dataSource={list} columns={columns} />
       </Card>
       {/* transitionName=""和maskTransitionName=""是去除弹框动画属性 */}
